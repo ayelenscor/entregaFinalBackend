@@ -1,0 +1,171 @@
+[
+  {
+    "id": 1,
+    "title": "Zapatillas Running Pro",
+    "description": "Zapatillas profesionales para marat�n",
+    "code": "ZAP001",
+    "price": 29999.99,
+    "status": true,
+    "stock": 50,
+    "category": "Calzado Deportivo",
+    "thumbnails": [
+      "img/zapatillas1.jpg",
+      "img/zapatillas2.jpg",
+      "img/zapatillas3.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Camiseta Selecci�n 2023",
+    "description": "Camiseta oficial selecci�n argentina",
+    "code": "CAM001",
+    "price": 25999.99,
+    "status": true,
+    "stock": 100,
+    "category": "Indumentaria",
+    "thumbnails": [
+      "img/camiseta1.jpg",
+      "img/camiseta2.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Pelota F�tbol Profesional",
+    "description": "Pelota oficial torneo primera divisi�n",
+    "code": "PEL001",
+    "price": 18999.99,
+    "status": true,
+    "stock": 30,
+    "category": "Accesorios",
+    "thumbnails": [
+      "img/pelota1.jpg",
+      "img/pelota2.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Set Pesas Gimnasio",
+    "description": "Kit completo de pesas con diferentes medidas",
+    "code": "PES001",
+    "price": 45999.99,
+    "status": true,
+    "stock": 20,
+    "category": "Equipamiento",
+    "thumbnails": [
+      "img/pesas1.jpg",
+      "img/pesas2.jpg",
+      "img/pesas3.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Raqueta Tenis Profesional",
+    "description": "Raqueta de tenis de fibra de carbono",
+    "code": "RAQ001",
+    "price": 89999.99,
+    "status": true,
+    "stock": 15,
+    "category": "Tenis",
+    "thumbnails": [
+      "img/raqueta1.jpg",
+      "img/raqueta2.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Bolso Deportivo Premium",
+    "description": "Bolso espacioso con compartimientos especiales",
+    "code": "BOL001",
+    "price": 12999.99,
+    "status": true,
+    "stock": 40,
+    "category": "Accesorios",
+    "thumbnails": [
+      "img/bolso1.jpg",
+      "img/bolso2.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Short Running Transpirable",
+    "description": "Short deportivo con tecnolog�a dry-fit",
+    "code": "SHO001",
+    "price": 8999.99,
+    "status": true,
+    "stock": 60,
+    "category": "Indumentaria",
+    "thumbnails": [
+      "img/short1.jpg",
+      "img/short2.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Botines F�tbol Profesional",
+    "description": "Botines de cuero con tapones intercambiables",
+    "code": "BOT001",
+    "price": 34999.99,
+    "status": true,
+    "stock": 25,
+    "category": "Calzado Deportivo",
+    "thumbnails": [
+      "img/botines1.jpg",
+      "img/botines2.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Medias Deportivas Pack x3",
+    "description": "Pack de medias deportivas ????deslizantes",
+    "code": "MED001",
+    "price": 4999.99,
+    "status": true,
+    "stock": 100,
+    "category": "Indumentaria",
+    "thumbnails": [
+      "img/medias1.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Banda El�stica Resistencia",
+    "description": "Set de bandas el�sticas con diferentes resistencias",
+    "code": "BAN001",
+    "price": 6999.99,
+    "status": true,
+    "stock": 45,
+    "category": "Equipamiento",
+    "thumbnails": [
+      "img/bandas1.jpg",
+      "img/bandas2.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Guantes de Boxeo",
+    "description": "Guantes profesionales de cuero",
+    "code": "GUA001",
+    "price": 19999.99,
+    "status": true,
+    "stock": 30,
+    "category": "Boxeo",
+    "thumbnails": [
+      "img/guantes1.jpg",
+      "img/guantes2.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Botines de Fútbol",
+    "description": "Botines profesionales de cuero",
+    "code": "BOT002",
+    "price": 34999.99,
+    "status": true,
+    "stock": 25,
+    "category": "Calzado",
+    "thumbnails": [
+      "img/botines1.jpg",
+      "img/botines2.jpg"
+    ]
+  }
+]
