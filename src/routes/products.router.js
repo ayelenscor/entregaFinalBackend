@@ -1,16 +1,21 @@
 import express from 'express';
-import path from 'path';
-import ProductManager from '../../ProductManager.js';
+import ProductManager from '../managers/ProductManager.js';
 
 const router = express.Router();
-const productManager = new ProductManager(path.resolve('./data/products.json'));
+const productManager = new ProductManager();
 
 router.get('/', async (req, res) => {
   try {
-    const products = await productManager.getProducts();
-    const limit = req.query.limit ? parseInt(req.query.limit) : undefined;
-    const result = limit ? products.slice(0, limit) : products;
-    res.json(result);
+    const { category, status, sort, limit } = req.query;
+    
+    const filters = {};
+    if (category) filters.category = category;
+    if (status !== undefined) filters.status = status === 'true';
+    if (sort) filters.sort = sort;
+    if (limit) filters.limit = limit;
+    
+    const products = await productManager.getProducts(filters);
+    res.json(products);
   } catch (error) {
     res.status(500).json({ error: 'Error al leer los productos' });
   }
@@ -18,7 +23,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:pid', async (req, res) => {
   try {
-    const product = await productManager.getProductById(Number(req.params.pid));
+    const product = await productManager.getProductById(req.params.pid);
     if (!product) {
       return res.status(404).json({ error: 'Producto no encontrado' });
     }
@@ -45,7 +50,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:pid', async (req, res) => {
   try {
-    const updatedProduct = await productManager.updateProduct(Number(req.params.pid), req.body);
+    const updatedProduct = await productManager.updateProduct(req.params.pid, req.body);
     
     if (req.app.get('io')) {
       const products = await productManager.getProducts();
@@ -61,7 +66,7 @@ router.put('/:pid', async (req, res) => {
 
 router.delete('/:pid', async (req, res) => {
   try {
-    await productManager.deleteProduct(Number(req.params.pid));
+    await productManager.deleteProduct(req.params.pid);
     
     if (req.app.get('io')) {
       const products = await productManager.getProducts();

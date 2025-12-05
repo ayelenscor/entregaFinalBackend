@@ -4,17 +4,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "node index.js"
+    "dev": "node index.js"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "type": "module",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-handlebars": "^7.0.7",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.1",
     "socket.io": "^4.7.2"
   }
 }

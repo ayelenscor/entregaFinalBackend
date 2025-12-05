@@ -1,13 +1,14 @@
-﻿import express from "express";
-import { promises as fs } from "fs";
+﻿import 'dotenv/config';
+import express from "express";
 import path from "path";
 import http from "http";
 import { Server as IOServer } from "socket.io";
 import { engine } from "express-handlebars";
+import { connectDB } from "./src/config/database.js";
 import productsRouter from "./src/routes/products.router.js";
 import cartsRouter from "./src/routes/carts.router.js";
 import viewsRouter from "./src/routes/views.router.js";
-import ProductManager from "./ProductManager.js";
+import ProductManager from "./src/managers/ProductManager.js";
 process.on('uncaughtException', (err) => { console.error('Uncaught Exception:', err); });
 process.on('unhandledRejection', (reason) => { console.error('Unhandled Rejection:', reason); });
 
@@ -34,7 +35,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 
-const productManager = new ProductManager(path.join("data", "products.json"));
+const productManager = new ProductManager();
 
 io.on("connection", (socket) => {
     console.log("Cliente conectado");
@@ -43,26 +44,8 @@ io.on("connection", (socket) => {
     });
 });
 
-const initializeDataDir = async () => {
-    try {
-        await fs.mkdir("data", { recursive: true });
-
-        const productsFile = path.join("data", "products.json");
-        const cartsFile = path.join("data", "carts.json");
-
-        if (!(await fs.stat(productsFile).catch(() => false))) {
-            await fs.writeFile(productsFile, "[]");
-        }
-        if (!(await fs.stat(cartsFile).catch(() => false))) {
-            await fs.writeFile(cartsFile, "[]");
-        }
-    } catch (error) {
-        console.error("Error al inicializar el directorio de datos:", error);
-    }
-};
-
 const startServer = async () => {
-    await initializeDataDir();
+    await connectDB();
     const listen = () => {
         httpServer.listen(currentPort, () => {
             console.log(`Servidor corriendo en http://localhost:${currentPort}`);

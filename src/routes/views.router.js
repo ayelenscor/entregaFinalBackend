@@ -1,18 +1,21 @@
 import express from 'express';
-import path from 'path';
-import ProductManager from '../../ProductManager.js';
+import ProductManager from '../managers/ProductManager.js';
 
 const router = express.Router();
-const productManager = new ProductManager(path.resolve('./data/products.json'));
+const productManager = new ProductManager();
 
 router.get('/', async (req, res) => {
     const products = await productManager.getProducts();
-    res.render('home', { products });
+    // Convertir documentos de Mongoose a objetos planos
+    const plainProducts = products.map(p => p.toObject ? p.toObject() : p);
+    res.render('home', { products: plainProducts });
 });
 
 router.get('/realtimeproducts', async (req, res) => {
     const products = await productManager.getProducts();
-    res.render('realTimeProducts', { products });
+    // Convertir documentos de Mongoose a objetos planos
+    const plainProducts = products.map(p => p.toObject ? p.toObject() : p);
+    res.render('realTimeProducts', { products: plainProducts });
 });
 
 export default router;
