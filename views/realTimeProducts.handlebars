@@ -1,22 +1,22 @@
 <div class="container">
-  <h1>⚡ Productos en Tiempo Real</h1>
+  <h1>Productos en Tiempo Real</h1>
   
-  <a href="/">← Volver al listado</a>
+  <a href="/">Volver</a>
   
   <section>
-    <h2>➕ Crear Nuevo Producto</h2>
+    <h2>Crear Producto</h2>
     <form id="createProductForm">
       <div>
-        <label>Título:</label>
+        <label>Nombre:</label>
         <input name="title" placeholder="Ej: Zapatillas Running" required />
       </div>
       <div>
-        <label>Descripción:</label>
-        <input name="description" placeholder="Descripción del producto" required />
+        <label>Descripcion:</label>
+        <input name="description" placeholder="Descripcion del producto" required />
       </div>
       <div>
-        <label>Código:</label>
-        <input name="code" placeholder="Código único" required />
+        <label>Codigo:</label>
+        <input name="code" placeholder="Codigo unico" required />
       </div>
       <div>
         <label>Precio:</label>
@@ -27,19 +27,19 @@
         <input name="stock" type="number" placeholder="Cantidad disponible" required />
       </div>
       <div>
-        <label>Categoría:</label>
+        <label>Categoria:</label>
         <input name="category" placeholder="Ej: Calzado Deportivo" required />
       </div>
       <div>
-        <label>Thumbnails (URLs separadas por coma):</label>
+        <label>URLs:</label>
         <input name="thumbnails" placeholder="URL1, URL2, URL3" />
       </div>
-      <button type="submit">✓ Crear Producto</button>
+      <button type="submit">Crear</button>
     </form>
   </section>
   
   <section>
-    <h2>📦 Lista de Productos</h2>
+    <h2>Lista de Productos</h2>
     <ul id="productsList">
       {{#if products}}
         {{#each products}}
@@ -47,7 +47,7 @@
             <div>
               <strong>{{this.title}}</strong> - <span style="color: #667eea; font-weight: bold;">${{this.price}}</span>
             </div>
-            <button class="deleteBtn" data-id="{{this.id}}">🗑️ Eliminar</button>
+            <button class="deleteBtn" data-id="{{this.id}}">Eliminar</button>
           </li>
         {{/each}}
       {{/if}}
@@ -58,4 +58,5 @@
 <script src="/socket.io/socket.io.js"></script>
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/routes/realtime-products.js"></script>
 <script src="/routes/realtime-products.js"></script>
